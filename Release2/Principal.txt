@@ -1,0 +1,75 @@
+import xml.etree.ElementTree as ET
+from Clases import Artistas, Albums, Cancion, Temporal
+from Listas import *
+
+
+listaDeArtistas = ListaDoblementeE()
+listaTemporal = ListaDoblementeE()
+
+mi_archivo = ET.parse("ArchivosEntrada.xml")
+padre = mi_archivo.getroot()
+
+for hijo in padre:
+    nombreCancion = hijo.attrib['nombre']
+    contad = 0
+    for subhijo in hijo:
+        if contad == 0:
+            artista = subhijo.text
+        if contad == 1:
+            album = subhijo.text
+        if contad == 2:
+            imagen = subhijo.text
+        if contad == 3:
+            ruta = subhijo.text
+        contad = contad + 1
+
+    temp = Temporal(nombreCancion, artista, album, imagen, ruta)
+    listaTemporal.InsertarDatos(temp)
+
+for objeto in listaTemporal.RecorrerLista():
+    if listaDeArtistas.contador == 0:
+        NuevoArtista = Artistas(objeto.artista)
+        NuevoAlbum = Albums(objeto.album, objeto.imagen)
+        NuevaCancion = Cancion(objeto.nombreCancion, objeto.ruta)
+        NuevoAlbum.insertarCancion(NuevaCancion)
+        NuevoArtista.insertarAlbum(NuevoAlbum)
+        listaDeArtistas.InsertarDatos(NuevoArtista)
+
+    else:
+        for artista in listaDeArtistas.RecorrerLista():
+            if artista.nombre == objeto.artista:
+                print("El Artista esta Repetido")
+                for album in artista.listadeAlbums.recorrer():
+                    if album.nombre == objeto.album:
+                        print("El Album esta repetido")
+                        NuevaCancion = Cancion(objeto.nombredeCancion, objeto.ruta)
+                        album.insertarCancion(NuevaCancion)
+                        break
+
+                    else:
+                        NuevoAlbum = Albums(objeto.album, objeto.imagen)
+                        NuevaCancion = Cancion(objeto.nombredeCancion, objeto.ruta)
+                        NuevoAlbum.insertarCancion(NuevaCancion)
+                        artista.insertarAlbum(NuevoAlbum)
+                        break
+            else:
+                NuevoArtista = Artistas(objeto.artista)
+                NuevoAlbum = Albums(objeto.album, objeto.imagen)
+                NuevaCancion = Cancion(objeto.nombredeCancion, objeto.ruta)
+                NuevoAlbum.insertarCancion(NuevaCancion)
+                NuevoArtista.insertarAlbum(NuevoAlbum)
+                listaDeArtistas.InsertarDatos(NuevoArtista)
+                break
+        break
+
+
+for artista in listaDeArtistas.RecorrerLista():
+
+    print("Artista: ", artista.nombre)
+    for album in artista.listadeAlbums.RecorrerLista():
+
+        print("Album: ", album.nombre)
+        print("Imagen de Album: ", album.imagen)
+        for cancion in album.listadeCanciones.RecorrerLista():
+            print("Cancion: ", cancion.nombre)
+            print("Ruta: ", cancion.ruta)
