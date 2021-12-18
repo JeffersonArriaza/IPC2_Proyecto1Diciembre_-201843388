@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+    <cancion nombre="Mí">
+        <artista>"Rels B"</artista>
+        <album>"A Mí"</album>
+        <imagen>C:\Users\jefri\Desktop\Cursos Vacacionales\Laboratorio\proyectos\Musica\Albumnes\A mi.jfif</imagen>
+        <ruta>C:\Users\jefri\Desktop\Cursos Vacacionales\Laboratorio\proyectos\Musica\Canciones\A mi.jfif</ruta>
+    </cancion>
+    <cancion nombre="Colapso">
+        <artista>"Kevin kaarl"</artista>
+        <album>"Fin del mundo"</album>
+        <imagen>C:\Users\jefri\Desktop\Cursos Vacacionales\Laboratorio\proyectos\Musica\Albumnes\Fin del mundo.jfif</imagen>
+        <ruta>C:\Users\jefri\Desktop\Cursos Vacacionales\Laboratorio\proyectos\Musica\Canciones\colapso.jfif</ruta>
+    </cancion>
+    <cancion nombre="mañana">
+        <artista>"Gorillaz"</artista>
+        <album>"Plastic Beach"</album>
+        <imagen>C:\Users\jefri\Desktop\Cursos Vacacionales\Laboratorio\proyectos\Musica\Albumnes\plastic beach.jfif</imagen>
+        <ruta>C:\Users\jefri\Desktop\Cursos Vacacionales\Laboratorio\proyectos\Musica\Canciones\El manana.jfif</ruta>
+    </cancion>
+</biblioteca>

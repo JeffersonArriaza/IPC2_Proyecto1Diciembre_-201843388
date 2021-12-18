@@ -1,0 +1,14 @@
+digraph grid {layout=dot labelloc = "t"edge [   arrowtail="open" ] rankdir="LR""Rels B"
+"Kevin kaarl"
+"Gorillaz"
+"Rels B"->
+"Kevin kaarl"->
+"Gorillaz"->
+"Null :3"
+"Rels B"->"A Mí"
+"Kevin kaarl"->"Fin del mundo"
+"Gorillaz"->"Plastic Beach"
+"A Mí"-> Mí
+"Fin del mundo"->Colapso
+"Plastic Beach"->mañana
+}
